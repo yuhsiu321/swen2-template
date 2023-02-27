@@ -55,7 +55,7 @@ public class LeftPaneController implements Initializable {
                 .isEmployed(isEmployed)
                 .build();
 
-        person = personService.addnewPerson(person);
+        person = personService.addNewPerson(person);
 
         searchController.addPerson(person);
     }

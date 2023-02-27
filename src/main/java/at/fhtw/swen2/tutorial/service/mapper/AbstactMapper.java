@@ -1,8 +1,5 @@
 package at.fhtw.swen2.tutorial.service.mapper;
 
-import at.fhtw.swen2.tutorial.persistence.PersonEntity;
-import at.fhtw.swen2.tutorial.service.model.Person;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;

@@ -1,4 +1,4 @@
-package at.fhtw.swen2.tutorial.persistence;
+package at.fhtw.swen2.tutorial.persistence.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

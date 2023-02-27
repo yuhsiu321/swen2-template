@@ -25,7 +25,7 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Person addnewPerson(Person person) {
+    public Person addNewPerson(Person person) {
 
         if (person == null){
             return null;

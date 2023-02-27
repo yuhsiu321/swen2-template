@@ -1,7 +1,7 @@
 package at.fhtw.swen2.tutorial.persistence;
 
+import at.fhtw.swen2.tutorial.persistence.entities.PersonEntity;
 import at.fhtw.swen2.tutorial.persistence.repositories.PersonRepository;
-import at.fhtw.swen2.tutorial.service.model.Person;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
