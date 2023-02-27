@@ -25,6 +25,8 @@ import java.util.stream.Collectors;
 @Slf4j
 public class SearchController {
 
+    LeftPaneController leftPaneController;
+
     @FXML
     public Button updateButton;
     @Autowired
@@ -59,7 +61,9 @@ public class SearchController {
         searchButton.setOnAction(event -> loadData());
         searchButton.setStyle("-fx-background-color: slateblue; -fx-text-fill: white;");
 
-        updateButton.setOnAction(event -> initTable2());
+        updateButton.setOnAction(event -> update());
+
+        //leftPaneController.sendButton.setOnAction(event -> initTable2());
 
         searchField.setOnKeyPressed(event -> {
             if (event.getCode().equals(KeyCode.ENTER)) {
@@ -75,13 +79,7 @@ public class SearchController {
 
     }
 
-    /*Person maxi = Person.builder()
-            .name("Maxi")
-            .id(11L)
-            .build();*/
-
     private void initTable() {
-        //masterData.add(new PersonView(maxi));
         tableView = new TableView<>(FXCollections.observableList(masterData));
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
@@ -97,7 +95,7 @@ public class SearchController {
         dataContainer.getChildren().add(tableView);
     }
 
-    private void initTable2() {
+    private void update() {
         dataContainer.getChildren().remove(tableView);
         masterData.clear();
         //System.out.println(masterData);

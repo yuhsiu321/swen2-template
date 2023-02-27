@@ -24,13 +24,12 @@ public class LeftPaneController implements Initializable {
     @Autowired
     private PersonService personService;
 
-
     @FXML
     private TextField tfName;
     @FXML
     private TextField tfEmployed;
     @FXML
-    private Button sendButton;
+    public Button sendButton;
 
     private boolean isEmployed;
 

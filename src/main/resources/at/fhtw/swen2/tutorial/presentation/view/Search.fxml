@@ -18,7 +18,7 @@
         <VBox fx:id="dataContainer" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
 
         </VBox>
-      <Button fx:id="updateButton" layoutX="271.0" layoutY="225.0" mnemonicParsing="false" text="Update" />
+        <Button fx:id="updateButton" layoutX="271.0" layoutY="225.0" mnemonicParsing="false" text="Update" />
 
     </children>
 </AnchorPane>

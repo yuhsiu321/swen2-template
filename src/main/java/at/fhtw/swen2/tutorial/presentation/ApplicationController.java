@@ -2,6 +2,8 @@ package at.fhtw.swen2.tutorial.presentation;
 
 import at.fhtw.swen2.tutorial.presentation.view.ApplicationShutdownEvent;
 import at.fhtw.swen2.tutorial.presentation.view.AboutDialogController;
+import at.fhtw.swen2.tutorial.presentation.view.LeftPaneController;
+import at.fhtw.swen2.tutorial.presentation.view.SearchController;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
@@ -47,6 +50,7 @@ public class ApplicationController implements Initializable, StageAware {
     @Override
     public void initialize(URL location, ResourceBundle rb) {
         stage.addListener((obv, o, n) -> n.setTitle(rb.getString("app.title")));
+        monitorStatusIcon.setFill(Color.LIGHTGREEN);
         tbMonitorStatus.setGraphic(monitorStatusIcon);
     }
 
