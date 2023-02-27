@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="200.0" prefWidth="200.0" spacing="8.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhtw.swen2.tutorial.presentation.view.LeftPaneController">
+   <children>
+      <Label text="%tab.gspro.title">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Separator prefHeight="14.0" prefWidth="184.0" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+      <TextField fx:id="tfName" />
+
+      <Separator prefHeight="13.0" prefWidth="184.0" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="isEmployed" />
+      <TextField fx:id="tfEmployed" />
+      <Button fx:id="sendButton" mnemonicParsing="false" text="Create">
+         <VBox.margin>
+            <Insets left="65.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+   <padding>
+      <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+   </padding>
+</VBox>
