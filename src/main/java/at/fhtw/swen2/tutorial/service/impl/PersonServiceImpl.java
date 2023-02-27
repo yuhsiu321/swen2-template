@@ -1,8 +1,7 @@
 package at.fhtw.swen2.tutorial.service.impl;
 
-import at.fhtw.swen2.tutorial.persistence.PersonEntity;
 import at.fhtw.swen2.tutorial.persistence.repositories.PersonRepository;
-import at.fhtw.swen2.tutorial.service.PersonMapper;
+import at.fhtw.swen2.tutorial.service.mapper.PersonMapper;
 import at.fhtw.swen2.tutorial.service.PersonService;
 import at.fhtw.swen2.tutorial.service.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +21,7 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public List<Person> getPersonList() {
-        List<Person> personList = new ArrayList<>();
-        personRepository.findAll().forEach(entity -> {
-            personList.add(personMapper.fromEntity(entity));
-        });
-        return personList;
+        return personMapper.fromEntity(personRepository.findAll());
     }
 
     @Override
