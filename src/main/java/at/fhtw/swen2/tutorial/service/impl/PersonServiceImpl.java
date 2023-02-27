@@ -2,6 +2,7 @@ package at.fhtw.swen2.tutorial.service.impl;
 
 import at.fhtw.swen2.tutorial.persistence.PersonEntity;
 import at.fhtw.swen2.tutorial.persistence.repositories.PersonRepository;
+import at.fhtw.swen2.tutorial.service.PersonMapper;
 import at.fhtw.swen2.tutorial.service.PersonService;
 import at.fhtw.swen2.tutorial.service.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,34 +17,25 @@ public class PersonServiceImpl implements PersonService {
     @Autowired
     private PersonRepository personRepository;
 
+    @Autowired
+    private PersonMapper personMapper;
+
     @Override
     public List<Person> getPersonList() {
         List<Person> personList = new ArrayList<>();
         personRepository.findAll().forEach(entity -> {
-            personList.add(Person.builder()
-                    .id(entity.getId())
-                    .name(entity.getName())
-                    .isEmployed(entity.isEmployed())
-                    .build());
+            personList.add(personMapper.fromEntity(entity));
         });
-        //System.out.println(personList.toString());
         return personList;
     }
 
     @Override
     public Person addnewPerson(Person person) {
 
-        PersonEntity personEntity = personRepository.save(PersonEntity.builder()
-                .id(person.getId())
-                .name(person.getName())
-                .isEmployed(person.isEmployed())
-                .build());
-
-        Person p = Person.builder().id(personEntity.getId()).name(personEntity.getName()).isEmployed(personEntity.isEmployed()).build();
-        //System.out.println(person.toString());
-        //personRepository.findAll().forEach(System.out::println);
-        //this.getPersonList();
-        return p;
+        if (person == null){
+            return null;
+        }
+        return personMapper.fromEntity(personRepository.save(personMapper.toEntity(person)));
     }
 
     public List<Person> getPersonListDummy() {
