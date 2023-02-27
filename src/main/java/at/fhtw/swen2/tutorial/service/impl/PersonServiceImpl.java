@@ -33,16 +33,17 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public Person addnewPerson(Person person) {
 
-        personRepository.save(PersonEntity.builder()
+        PersonEntity personEntity = personRepository.save(PersonEntity.builder()
                 .id(person.getId())
                 .name(person.getName())
                 .isEmployed(person.isEmployed())
                 .build());
 
+        Person p = Person.builder().id(personEntity.getId()).name(personEntity.getName()).isEmployed(personEntity.isEmployed()).build();
         //System.out.println(person.toString());
         //personRepository.findAll().forEach(System.out::println);
         //this.getPersonList();
-        return person;
+        return p;
     }
 
     public List<Person> getPersonListDummy() {

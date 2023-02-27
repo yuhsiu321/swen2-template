@@ -31,8 +31,6 @@ public class LeftPaneController implements Initializable {
     @FXML
     public Button sendButton;
 
-    private boolean isEmployed;
-
     @FXML
     public void initialize(URL location, ResourceBundle rb) {
 
@@ -41,6 +39,7 @@ public class LeftPaneController implements Initializable {
 
     private void create(){
 
+        boolean isEmployed;
         if(tfEmployed.getText().toLowerCase().equals("true")){
             isEmployed = true;
         }else if(tfEmployed.getText().toLowerCase().equals("false")){
