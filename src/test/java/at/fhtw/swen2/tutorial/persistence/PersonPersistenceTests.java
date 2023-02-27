@@ -15,7 +15,7 @@ class PersonPersistenceTests {
 	void testPersonRepository() {
 		PersonEntity maxi = PersonEntity.builder()
 				.name("Maxi")
-				.email("maxi@email.com")
+				.isEmployed(true)
 				.build();
 		personRepository.save(maxi);
 		personRepository.findAll().forEach(System.out::println);

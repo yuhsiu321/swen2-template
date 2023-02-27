@@ -21,11 +21,10 @@ import javax.annotation.PostConstruct;
 import java.util.stream.Collectors;
 
 @Component
-@Scope("prototype")
 @Slf4j
 public class SearchController {
 
-    LeftPaneController leftPaneController;
+    //@Autowired private LeftPaneController leftPaneController;
 
     @FXML
     public Button updateButton;
@@ -61,10 +60,6 @@ public class SearchController {
         searchButton.setOnAction(event -> loadData());
         searchButton.setStyle("-fx-background-color: slateblue; -fx-text-fill: white;");
 
-        updateButton.setOnAction(event -> update());
-
-        //leftPaneController.sendButton.setOnAction(event -> initTable2());
-
         searchField.setOnKeyPressed(event -> {
             if (event.getCode().equals(KeyCode.ENTER)) {
                 loadData();
@@ -95,16 +90,14 @@ public class SearchController {
         dataContainer.getChildren().add(tableView);
     }
 
-    private void update() {
-        dataContainer.getChildren().remove(tableView);
-        masterData.clear();
-        //System.out.println(masterData);
-        personService.getPersonList().forEach(p -> masterData.add(new PersonView(p)));
-
-        initTable();
+    public void addPerson(Person person){
+        masterData.add(new PersonView(person));
+        tableView.refresh();
     }
 
     private void loadData() {
+
+        init();
 
         String searchText = searchField.getText().toLowerCase();
 

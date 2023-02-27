@@ -17,12 +17,14 @@ import javafx.fxml.Initializable;
 import lombok.extern.slf4j.Slf4j;
 
 @Component
-@Scope("prototype")
 @Slf4j
 public class LeftPaneController implements Initializable {
 
     @Autowired
     private PersonService personService;
+
+    @Autowired
+    private SearchController searchController;
 
     @FXML
     private TextField tfName;
@@ -53,7 +55,8 @@ public class LeftPaneController implements Initializable {
                 .isEmployed(isEmployed)
                 .build();
 
-        personService.addnewPerson(person);
+        person = personService.addnewPerson(person);
 
+        searchController.addPerson(person);
     }
 }
